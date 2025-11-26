@@ -1,6 +1,6 @@
 # GitLab Pipeline Monitor
 
-[![Version](https://img.shields.io/badge/version-1.1.2-blue.svg)](https://github.com/dogdrinkwater/gitlab-pipeline-plugin)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/dogdrinkwater/gitlab-pipeline-plugin)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge request monitoring, designed to streamline your DevOps workflow without leaving your IDE.
@@ -161,7 +161,7 @@ A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge re
 
 ## 📝 Changelog
 
-### Version 1.1.2 (2025-11-26)
+### Version 1.1.0 (2025-11-26)
 - 🎉 **Merge Request Integration** - Brand new MR tab with full list view and detailed information
 - 🔔 **Desktop Notifications** - Automatic alerts when your pipelines complete with one-click navigation
 - ⬅️➡️ **Job Log Navigation** - New Previous/Next buttons for sequential job log browsing
