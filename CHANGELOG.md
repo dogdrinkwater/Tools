@@ -119,11 +119,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Support Policy
 
 - **Current Version**: 1.1.2
-- **Supported IDE Versions**: IntelliJ IDEA 2024.2 - 2025.2.*
+- **Supported IDE Versions**: IntelliJ IDEA 2022.3 - 2025.2.*
 - **Minimum Requirements**: Java 17, GitLab API v4
+
+---
+
+## ☕ Support the Project
+
+<p align="center">
+  <img src="alipay.jpg" alt="Donate via Alipay" width="260px" height="400px" style="max-width:100%;margin:0 12px;" />
+  <img src="wechatpay.png" alt="Donate via WeChat Pay" width="260px" height="400px" style="max-width:100%;margin:0 12px;" />
+</p>
 
 ---
 
 [1.1.2]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.1.2
 [1.0.1]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.0.1
 [1.0.0]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.0.0
+
