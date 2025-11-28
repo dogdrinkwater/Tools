@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge request monitoring, designed to streamline your DevOps workflow without leaving your IDE.
+Buy me a coffee if you want.
+[]
 
 ## ✨ Key Features
 
