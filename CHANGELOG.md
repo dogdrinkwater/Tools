@@ -5,49 +5,28 @@ All notable changes to the "GitLab Pipeline Monitor" plugin will be documented i
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2025-11-26
+## [1.1.2] - 2025-11-28
 
 ### Added
-- 🎉 **Merge Request Integration** - Complete MR management with list view, detail panel, and drag-resizable split panes
-- 🔔 **Desktop Notifications** - Automatic balloon notifications when user-created pipelines complete (success/failed/canceled) with one-click navigation to view results
-- ⬅️➡️ **Job Log Navigation** - Previous/Next buttons in job log viewer for easy sequential browsing through all pipeline jobs (sorted by creation time)
-- 📊 **Enhanced MR Details** - Comprehensive merge request information display including:
-  - Assignee with avatar (or "Unassigned" indicator)
-  - Author information
-  - Merge status (merged/open with merge actor details)
-  - Source and target branches
-  - Created and updated timestamps
-  - MR description
-  - Direct "Open in GitLab" browser integration
-- 🔄 **Unified Tab Interface** - Seamless tab-based navigation between Pipelines and Merge Requests with:
-  - Independent refresh mechanisms
-  - Separate selection states maintained across tab switches
-  - Visual loading indicators for both tabs
-- ↔️ **Resizable Panels** - Drag-to-resize JSplitPane dividers for both pipeline and MR views to customize workspace layout
-- 🎯 **Pipeline Tracking Service** - Background monitoring service that:
-  - Automatically tracks pipelines created by the user
-  - Polls pipeline status every 10 seconds
-  - Shows desktop notification on completion
-  - Provides one-click navigation to completed pipeline
-  - Properly cleans up resources via Disposable interface
-- 🛠️ **Renamed Tool Window** - Changed from "GitLab Pipelines" to "GitLab Toolkit" to reflect expanded functionality
+- 🎉 **Merge Request Workspace** – brand-new MR tab (list + details) with drag-resizable layout, assignee/author metadata, browser deeplinks, and a GitLab Toolkit setting that lets teams hide the tab when they only care about pipelines.
+- 🔔 **Pipeline Completion Notifications** – project-level `PipelineNotificationService` watches every pipeline you trigger, polls GitLab, and surfaces balloon notifications with one-click navigation when runs finish (success, failed, canceled).
+- ⬅️➡️ **Job Log Navigation** – Previous/Next controls inside the job log dialog so you can review an entire pipeline without reopening the viewer; ordering follows job creation time for clarity.
+- ⚙️ **Configurable MR Visibility** – Settings → Tools → GitLab Toolkit now includes a *Merge Requests list display* checkbox so workspaces can opt out of MR tooling entirely.
 
 ### Changed
-- Improved auto-refresh behavior with visual loading states for better user feedback
-- Enhanced pipeline detail refresh to only update status/jobs without rebuilding entire UI
-- Optimized MR list loading with proper retry logic and error handling
+- 🛠️ **GitLab Toolkit window** replaces the former pipelines-only tool window and keeps Pipelines/Merge Requests in sync with independent refresh + selection states.
+- 🔄 Pipeline detail refresh now updates status, variables, and jobs incrementally (no more full repaint) and shows visual loading states during manual refreshes.
+- ↔️ Both pipeline and MR panes use consistent JSplitPane resizing so you can dedicate more space to whichever panel you are actively using.
 
 ### Fixed
-- Pipeline detail auto-refresh now correctly stops when pipeline reaches terminal state
-- Job log viewer properly stops refresh timer when dialog is closed
-- Proper resource cleanup for notification monitoring service via Disposable implementation
+- Auto-refresh timers correctly stop once a pipeline reaches a terminal status, preventing unnecessary polling or UI churn.
+- Job log dialog now tears down its internal refresh timer when you close it, eliminating the lingering background work seen in 1.0.1.
+- Merge Requests tab initialization logic ensures only a single tab is ever created, even after toggling the new visibility preference.
 
 ### Technical
-- Added `PipelineNotificationService` as project-level service implementing Disposable
-- Added `UnifiedGitLabPanel` with JTabbedPane for Pipelines and Merge Requests tabs
-- Added `MergeRequestListPanel` for MR display and management
-- Implemented notification group "GitLabPipelineNotifications" for desktop alerts
-- Enhanced logging with console println statements for better debugging visibility
+- Introduced `UnifiedGitLabPanel` (tabbed pipeline + MR UI) and `MergeRequestListPanel` UI components.
+- Added `PipelineNotificationService` as a project-level service implementing `Disposable` for clean shutdown.
+- Extended `GitLabSettingsState`/`GitLabSettingsConfigurable` with the merge-request visibility flag to persist the new preference.
 
 ---
 
@@ -145,8 +124,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[1.1.0]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.1.0
+[1.1.2]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.1.2
 [1.0.1]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.0.1
 [1.0.0]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.0.0
-
-
