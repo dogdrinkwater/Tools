@@ -204,7 +204,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Support
 
 - **Email**: 7motor28@gmail.com
-- **Issues**: [GitHub Issues](https://github.com/dogdrinkwater/gitlab-pipeline-plugin/issues)
+- **Issues**: [GitHub Issues](https://github.com/dogdrinkwater/gitlab-pipeline-plugin/issues)](https://github.com/dogdrinkwater/Tools/issues)
 
 ## 🙏 Acknowledgments
 
