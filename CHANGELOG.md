@@ -5,6 +5,31 @@ All notable changes to the "GitLab Pipeline Monitor" plugin will be documented i
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.4] - 2025-12-09
+
+### Added
+- 🔧 **Connection Verification** – New "Verify" button in settings (Tools → GitLab Toolkit Settings) tests GitLab connection before saving; validates URL and access token, displays connected user info (username, full name) on success.
+- 🌿 **Branch Selection for New Pipelines** – Create new pipelines with intelligent branch picker featuring auto-completion; easily select from all available repository branches with searchable dropdown that supports special characters (slashes, dashes).
+- 📁 **Project History Persistence** – Automatically saves last 20 loaded projects with metadata (name, path, GitLab URL, last accessed time) to persistent configuration; viewable and removable from new "Loaded Projects" table in settings panel with toolbar decorator.
+- 📄 **Dual CI File Support** – GitLab CI file parser (`GitLabCiParser`) now checks for both `.gitlab-ci.yml` and `.gitlab-ci.yaml` extensions for maximum compatibility across different project configurations.
+- 🎨 **Visual Enhancements** – Added preview icon (👁 `AllIcons.Actions.Preview`) before job names in Jobs Timeline table for better visual hierarchy and to indicate clickable items.
+
+### Changed
+- 🛠️ **UX Refinements** – Improved spacing and alignment across all dialogs (New Pipeline, Settings); enhanced button states with loading indicators (e.g., "Verifying..." during connection test); better error messages with actionable guidance for common configuration issues.
+- 📊 **Settings Panel Reorganization** – Settings now organized with titled separators: "GitLab Configuration", "Custom", and "Loaded Projects" sections for clearer hierarchy.
+- 🔄 **Branch Field UI** – New Pipeline dialog's branch field now uses `TextFieldWithAutoCompletion` with visual hint icon indicating searchable/auto-complete functionality.
+
+### Technical
+- Extended `GitLabSettingsState.State` with `loadedProjects: MutableList<LoadedProject>` to persist project history.
+- Added `LoadedProject` data class with fields: `gitlabUrl`, `projectId`, `projectName`, `projectPath`, `lastAccessedAt`.
+- Implemented `addOrUpdateProject()`, `removeProject()`, and `clearAllProjects()` methods in `GitLabSettingsState` with automatic size limiting (max 20 projects).
+- Added `verifyConnection()` method in `GitLabSettingsConfigurable` that calls `GitLabService.getCurrentUser()` for connection validation.
+- Updated `GitLabCiParser.findGitLabCiFile()` to check both `.gitlab-ci.yml` and `.gitlab-ci.yaml` file extensions.
+- Enhanced `NewPipelineDialog` constructor to accept `branches: List<String>` and `defaultBranch: String` parameters for branch auto-completion.
+- Added "Loaded Projects" table with `JBTable` and `ToolbarDecorator` in settings UI for managing project history.
+
+---
+
 ## [1.1.2] - 2025-11-28
 
 ### Added
@@ -133,7 +158,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[1.1.4]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.1.4
 [1.1.2]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.1.2
 [1.0.1]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.0.1
 [1.0.0]: https://github.com/dogdrinkwater/gitlab-pipeline-plugin/releases/tag/v1.0.0
+
 
