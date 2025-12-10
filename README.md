@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge request monitoring, designed to streamline your DevOps workflow without leaving your IDE.
-## ☕ Support the Project
+## ☕ Buy me a coffee
 
 <p align="center">
   <img src="alipay.jpg" alt="Donate via Alipay" width="260px" height="400px" style="max-width:100%;margin:0 12px;" />
