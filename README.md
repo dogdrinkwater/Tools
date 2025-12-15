@@ -5,10 +5,11 @@
 
 A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge request monitoring, designed to streamline your DevOps workflow without leaving your IDE.
 ## ☕ Buy me a coffee
+<a href='https://ko-fi.com/O4O71P7VCS' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 <p align="center">
-  <img src="alipay.jpg" alt="Donate via Alipay" width="260px" height="400px" style="max-width:100%;margin:0 12px;" />
-  <img src="wechatpay.png" alt="Donate via WeChat Pay" width="260px" height="400px" style="max-width:100%;margin:0 12px;" />
+  <img src="alipay.jpg" alt="Donate via Alipay" width="160px" height="200px" style="max-width:50%;margin:0 12px;" />
+  <img src="wechatpay.png" alt="Donate via WeChat Pay" width="160px" height="200px" style="max-width:50%;margin:0 12px;" />
 </p>
 
 ---
