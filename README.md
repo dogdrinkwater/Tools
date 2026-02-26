@@ -1,15 +1,40 @@
 # GitLab Pipeline Monitor
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/dogdrinkwater/gitlab-pipeline-plugin)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/dogdrinkwater/gitlab-pipeline-plugin)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge request monitoring, designed to streamline your DevOps workflow without leaving your IDE.
+A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline monitoring, deployment tracking, and merge request management — designed to streamline your DevOps workflow without leaving your IDE. Now with **multi-project workspace support** and **full Chinese language support**!
+
 ## ☕ Buy me a coffee
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O71P7VCS)
 ---
 
-
 ## ✨ Key Features
+
+### 🗂️ Multi-Project Workspace Support (New in v2.1!)
+- **Automatic Detection** - Plugin scans your workspace on startup and discovers every directory with a GitLab remote. No configuration needed.
+- **Project Selector Dropdown** - A clean dropdown at the top of the GitLab Toolkit panel lets you switch between projects in one click. Automatically hidden for single-project workspaces — zero UI change for existing users.
+- **Persistent Selection** - Your last chosen project is remembered and restored on next IDE open.
+- **Name-Conflict Disambiguation** - Two repos named `api`? The dropdown shows their paths: `api (/services/api)`.
+- **Refresh Projects Button** - New toolbar button re-scans the workspace without restarting the IDE — great for mid-session repo cloning.
+- **Multi-Instance GitLab** - Mix projects from `gitlab.com` and your company's self-hosted server in the same workspace.
+- **Resilient Edge Cases** - Removed a repo? The plugin falls back gracefully and shows a notification. No GitLab repos found? A helpful empty-state label guides you.
+
+### 🌐 Show All Loaded Projects (New in v2.1!)
+- **Cross-Window Project Dropdown** - Enable *"Show all loaded projects in dropdown"* in **Settings → Custom** to see every project you've ever opened across all IDE windows — ideal for microservice teams working with many repos.
+- **Smart Deduplication** - Projects open in the current window and other windows never appear twice.
+- **Correct Names Always** - Project names are derived from the GitLab remote path (e.g. `transcript-services`), never from the IDE window name.
+- **Create Pipelines Anywhere** - Trigger pipelines for projects from other windows. Variables are loaded from the stored local path automatically. If the path isn't known yet, the plugin guides you to open the folder and remembers it for next time.
+
+### 🚀 Deployment Monitoring (New in v2.0!)
+- **Complete Deployment Tracking** - Monitor all deployments across environments in a dedicated Deployments tab
+- **Smart Stage Grouping** - Jobs organized by pipeline stages with collapsible panels
+- **Lazy Loading** - Loads only 5 jobs initially per stage for lightning-fast performance
+- **Auto-Expand Failed Stages** - Automatically expands failed stages to show all job details
+- **Environment Filtering** - Filter by production, staging, development, or custom environments
+- **Status Filtering** - Track deployments by success, failed, running, canceled, and more
+- **Deployment Details** - View environment URLs, job info, pipeline links, and commit SHAs
+- **Real-Time Updates** - Auto-refresh keeps deployment status current
 
 ### Pipeline Management
 - **Real-Time Pipeline Monitoring** - Live status updates with configurable auto-refresh (5s to 1hr intervals)
@@ -20,38 +45,38 @@ A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge re
 - **Advanced Job Log Viewer** - Full ANSI color support, auto-scroll, raw log mode, real-time updates, and Previous/Next job navigation
 - **Infinite Scroll** - Seamlessly load thousands of pipelines with smart pagination
 
-### Merge Request Integration
-- **MR List View** - Browse all merge requests for your project with status indicators
-- **Detailed MR Information** - View assignee, author, merge status, source/target branches, and metadata
-- **MR Notifications** - Stay updated on merge request status changes
-- **Browser Integration** - Quick jump to GitLab UI for any merge request
-
 ### Smart Features
 - **Auto-Star Projects** - Intelligent project detection with one-click starring workflow
-- **Unified Tab Interface** - Seamless switching between Pipelines and Merge Requests
 - **Resizable Panels** - Drag-to-resize split panes for customized workspace
 - **Multi-Environment Support** - Visual distinction for dev, qa, ppe, prod environments
 - **Comprehensive Details View** - View all variables, jobs timeline, status, duration, and metadata
 
+### 🌍 Internationalization (New in v2.0!)
+- **Chinese Language Support** - Complete UI translation to Simplified Chinese (简体中文)
+- **Auto-Language Detection** - Automatically displays in your IDE's configured language
+- **Bilingual Interface** - Seamlessly switch between English and Chinese
+- **200+ Translated Elements** - All UI components, dialogs, tooltips, and messages fully localized
+- **UTF-8 Encoding** - Perfect rendering of Chinese characters across all platforms
+
 ## 🚀 What Makes This Plugin Special
 
 ### Industry-First Features:
-- **Unified GitLab Toolkit** - Only plugin combining pipelines AND merge requests in one seamless interface
+- **Deployment Monitoring** - Dedicated deployment tracking with stage grouping and lazy loading
 - **Smart Notifications** - Desktop alerts with one-click navigation when your pipelines complete
 - **ANSI Log Rendering** - Full color-coded log display (colors, bold, italic, underline)
 - **Job Log Navigation** - Unique Previous/Next buttons for sequential job log browsing
 - **Smart Variable Parser** - Automatically extracts variables from .gitlab-ci.yml with options support
 - **Live Job Logs** - Real-time log streaming with 5-second auto-refresh for running jobs
-- **MR Detail View** - Comprehensive merge request information including assignees and merge status
 - **Selection Persistence** - Unique feature maintaining context across refreshes
 - **Auto-Star Workflow** - Streamlined project onboarding with automatic starring
+- **Full Internationalization** - Native Chinese language support with auto-detection
 
 ## 📋 Requirements
 
 - IntelliJ IDEA 2024.2 or later (Community or Ultimate Edition)
 - GitLab instance (self-hosted or GitLab.com)
 - GitLab Personal Access Token with `api` scope
-- Starred projects in GitLab (or use auto-star feature)
+- A workspace folder containing at least one directory with a `.git` remote pointing to GitLab (or starred projects for the fallback discovery path)
 
 ## 🔧 Installation
 
@@ -87,21 +112,38 @@ A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge re
 ### Step 3: Open GitLab Toolkit Tool Window
 1. Click **View** → **Tool Windows** → **GitLab Toolkit**
 2. Or use the tool window icon on the right sidebar
-3. Pipelines and merge requests for your current project will load automatically
+3. Pipelines for your current project will load automatically
 
 ## 📖 Usage Guide
+
+### Multi-Project Workspaces (v2.1+)
+
+If your workspace contains two or more directories with GitLab remotes, a **project selector dropdown** automatically appears at the top of the GitLab Toolkit panel.
+
+```
+┌────────────────────────────────────────────────────────────┐
+│  Project: [frontend ▼]  (1 of 5)  [↺] [⟳] [⚙]           │
+├────────────────────────────────────────────────────────────┤
+│  Pipelines  │  Deployments                                 │
+└────────────────────────────────────────────────────────────┘
+```
+
+**Switching projects:**
+1. Click the dropdown and select any project — pipelines and deployments reload immediately.
+2. Your selection persists across IDE restarts.
+
+**After cloning a new repo:**
+1. Click the **"Refresh Projects"** button (⟳, distinct from the pipeline Refresh button).
+2. The new repository appears in the dropdown within seconds.
+
+**No GitLab projects found?**
+- Make sure the workspace folder contains a `.git` directory whose `origin` remote points to a GitLab instance.
+- Check that the GitLab URL in Settings → Tools → GitLab Toolkit Settings matches your instance.
 
 ### Viewing Pipelines
 - Pipelines are displayed in chronological order with status indicators
 - Click any pipeline to view detailed information
 - Your selection persists across refreshes
-- Switch between **Pipelines** and **Merge Requests** tabs
-
-### Viewing Merge Requests
-- Browse all merge requests in the **Merge Requests** tab
-- Click any MR to view detailed information including assignee, merge status, and branches
-- Click **Open in GitLab** to view the MR in your browser
-- Drag the divider to resize the MR list and details panels
 
 ### Pipeline Notifications
 - When you create a pipeline, the plugin automatically tracks it
@@ -165,7 +207,25 @@ A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline and merge re
 
 ## 📝 Changelog
 
-### Version 1.1.0 (2025-11-26)
+### Version 2.1.0 (2026-02-25)
+- 🗂️ **Multi-Project Workspace Support** - Automatic detection of all GitLab repositories in the workspace with a project selector dropdown
+- 🔄 **Refresh Projects** - New toolbar button to re-scan the workspace without restarting the IDE
+- 🛡️ **Resilient Edge Cases** - Graceful handling of removed projects, empty workspaces, and startup race conditions
+- 🌍 **9 New i18n Keys** - Full English and Chinese translations for all multi-project UI strings
+- 🐛 **53 New Unit Tests** - Comprehensive coverage of detection logic, API integration, edge cases, and i18n
+
+### Version 2.0.0 (2026-02-13)
+- 🚀 **Deployment Monitoring** - Brand new Deployments tab with environment and status filtering
+- 🎯 **Smart Stage Grouping** - Collapsible stages with lazy loading (5 jobs initially)
+- 🔄 **Auto-Expand Failed Stages** - Automatically shows all jobs in failed stages
+- 🌍 **Chinese Language Support** - Complete UI translation to Simplified Chinese (简体中文)
+- 🔤 **Auto-Language Detection** - Automatically displays in your IDE's configured language
+- 📝 **200+ Translated Elements** - All UI components fully localized for English and Chinese
+- 🎨 **UTF-8 Encoding** - Perfect rendering of Chinese characters
+- ⚡ **Performance Optimizations** - Stage-level job loading reduces API calls by 80%+
+- 🔧 **Unified Refresh Logic** - All tabs share consistent auto-refresh settings
+
+### Version 1.1.8 (2026-02-09)
 - 🎉 **Merge Request Integration** - Brand new MR tab with full list view and detailed information
 - 🔔 **Desktop Notifications** - Automatic alerts when your pipelines complete with one-click navigation
 - ⬅️➡️ **Job Log Navigation** - New Previous/Next buttons for sequential job log browsing
@@ -199,12 +259,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Support
 
 - **Email**: 7motor28@gmail.com
-- **Issues**: [GitHub Issues](https://github.com/dogdrinkwater/Tools/issues)
-- **9块9瑞幸咖啡支持我**:
+- **Issues**: [GitHub Issues](https://github.com/dogdrinkwater/gitlab-pipeline-plugin/issues)
+- **一杯咖啡支持牛马的一天**:
 <p align="left">
   <img src="alipay.jpg" alt="Donate via Alipay" width="160px" height="200px" style="max-width:50%;margin:0 12px;" />
   <img src="wechatpay.png" alt="Donate via WeChat Pay" width="160px" height="200px" style="max-width:50%;margin:0 12px;" />
 </p>
+
 ## 🙏 Acknowledgments
 
 - Built with [IntelliJ Platform SDK](https://plugins.jetbrains.com/docs/intellij/)
@@ -215,6 +276,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Made with ❤️ by developers, for developers**
-
-
-
