@@ -1,13 +1,7 @@
 # GitLab Pipeline Monitor
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/dogdrinkwater/gitlab-pipeline-plugin)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 A powerful IntelliJ IDEA plugin for real-time GitLab CI/CD pipeline monitoring, deployment tracking, and merge request management — designed to streamline your DevOps workflow without leaving your IDE. Now with **multi-project workspace support** and **full Chinese language support**!
 
-## ☕ Buy me a coffee
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O71P7VCS)
----
 
 ## ✨ Key Features
 
@@ -259,12 +253,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Support
 
 - **Email**: 7motor28@gmail.com
-- **Issues**: [GitHub Issues](https://github.com/dogdrinkwater/gitlab-pipeline-plugin/issues)
-- **一杯咖啡支持牛马的一天**:
-<p align="left">
-  <img src="alipay.jpg" alt="Donate via Alipay" width="160px" height="200px" style="max-width:50%;margin:0 12px;" />
-  <img src="wechatpay.png" alt="Donate via WeChat Pay" width="160px" height="200px" style="max-width:50%;margin:0 12px;" />
-</p>
+
 
 ## 🙏 Acknowledgments
 
